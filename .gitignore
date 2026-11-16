@@ -1,0 +1,6 @@
+notes/
+.playwright-mcp/
+*.ppm
+raytracer
+build/
+.DS_Store
