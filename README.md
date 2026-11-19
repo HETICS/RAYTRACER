@@ -18,6 +18,17 @@ You can also build without the container if you have CMake 3.20+ and a C++17 com
 
 ## Build and run
 
+Shortcuts, like `npm run` scripts (see the [`Makefile`](Makefile)):
+
+```bash
+make build    # configure and build
+make run      # build, then run
+make test     # build, then run the tests
+make clean    # delete build/ to start from scratch
+```
+
+The same steps by hand:
+
 All commands run from the project root, inside the container.
 
 ```bash

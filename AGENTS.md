@@ -5,6 +5,15 @@
 Run from the repository root, inside the dev container.
 
 ```sh
+make build    # configure and build
+make run      # build, then run
+make test     # build, then run the tests
+make clean    # delete build/
+```
+
+Without make:
+
+```sh
 cmake -B build -G Ninja                         # configure (first time, or after CMakeLists.txt changes)
 cmake --build build                             # build
 ./build/raytracer                               # run
