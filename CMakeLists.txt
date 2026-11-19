@@ -11,7 +11,10 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # Code shared by the program and the tests, so tests exercise the real code.
-add_library(raytracer_core src/greeting.cpp)
+add_library(raytracer_core
+  src/greeting.cpp
+  src/vector.cpp
+)
 target_include_directories(raytracer_core PUBLIC src)
 target_compile_options(raytracer_core PUBLIC
   $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wpedantic>
