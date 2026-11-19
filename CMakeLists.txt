@@ -13,7 +13,7 @@ endif()
 # Code shared by the program and the tests, so tests exercise the real code.
 add_library(raytracer_core
   src/greeting.cpp
-  src/vector.cpp
+  src/math/vector.cpp
 )
 target_include_directories(raytracer_core PUBLIC src)
 target_compile_options(raytracer_core PUBLIC
@@ -36,7 +36,7 @@ enable_testing()
 
 add_executable(raytracer_tests
   tests/greeting_test.cpp
-  tests/vector_test.cpp
+  tests/math/vector_test.cpp
 )
 target_link_libraries(raytracer_tests PRIVATE raytracer_core Catch2::Catch2WithMain)
 

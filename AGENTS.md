@@ -35,3 +35,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). The CI in `.github/workflows/ci.yml` run
 
 - Private member variables start with `_`, for example `_x`.
 - No `get` prefix on accessors: `x()`, not `getX()`.
+
+## Source layout
+
+- Each concept has its own folder under `src/`, for example `src/math/vector.h` and `src/math/vector.cpp`.
+- Tests mirror that layout: `tests/math/vector_test.cpp`.
+- Includes start from `src/`: `#include "math/vector.h"`.
