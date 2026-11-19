@@ -34,3 +34,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). The CI in `.github/workflows/ci.yml` run
 ## Code style
 
 - Private member variables start with `_`, for example `_x`.
+- No `get` prefix on accessors: `x()`, not `getX()`.

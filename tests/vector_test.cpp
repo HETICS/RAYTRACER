@@ -8,9 +8,9 @@ using Catch::Matchers::WithinAbs;
 const double tolerance = 1e-9;
 
 static void requireVectorsEqual(const Vector& actual, const Vector& expected) {
-    REQUIRE_THAT(actual.getX(), WithinAbs(expected.getX(), tolerance));
-    REQUIRE_THAT(actual.getY(), WithinAbs(expected.getY(), tolerance));
-    REQUIRE_THAT(actual.getZ(), WithinAbs(expected.getZ(), tolerance));
+    REQUIRE_THAT(actual.x(), WithinAbs(expected.x(), tolerance));
+    REQUIRE_THAT(actual.y(), WithinAbs(expected.y(), tolerance));
+    REQUIRE_THAT(actual.z(), WithinAbs(expected.z(), tolerance));
 }
 
 TEST_CASE("add sums each component", "[vector]") {

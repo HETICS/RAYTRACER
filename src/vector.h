@@ -4,9 +4,9 @@ class Vector {
   public:
     Vector(double x, double y, double z);
 
-    double getX() const;
-    double getY() const;
-    double getZ() const;
+    double x() const;
+    double y() const;
+    double z() const;
 
     Vector add(const Vector& other) const;
     Vector subtract(const Vector& other) const;
