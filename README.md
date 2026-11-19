@@ -47,6 +47,11 @@ cmake --build build && ctest --test-dir build --output-on-failure
 
 `ctest` runs every Catch2 test case and prints the details of any failure. You can also run the test executable directly with `./build/raytracer_tests`.
 
+### Documents
+
+- [Domain model](docs/domain/domain-model.md)
+- [Discovery report](docs/discovery/discovery-report.md)
+
 ### Project layout
 
 | Path | Content |
