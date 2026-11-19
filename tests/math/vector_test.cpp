@@ -13,10 +13,10 @@ static void requireVectorsEqual(const Vector& actual, const Vector& expected) {
     REQUIRE_THAT(actual.z(), WithinAbs(expected.z(), tolerance));
 }
 
-TEST_CASE("add sums each component", "[vector]") {
-    requireVectorsEqual(Vector(1, 2, 3).add(Vector(4, 5, 6)), Vector(5, 7, 9));
+TEST_CASE("a + b sums each component", "[vector]") {
+    requireVectorsEqual(Vector(1, 2, 3) + Vector(4, 5, 6), Vector(5, 7, 9));
 }
 
-TEST_CASE("subtract takes away each component", "[vector]") {
-    requireVectorsEqual(Vector(-1, 4, 0).subtract(Vector(-5, 2, 1)), Vector(4, 2, -1));
+TEST_CASE("a - b takes away each component", "[vector]") {
+    requireVectorsEqual(Vector(-1, 4, 0) - Vector(-5, 2, 1), Vector(4, 2, -1));
 }
