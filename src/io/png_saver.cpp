@@ -10,7 +10,7 @@ static unsigned char toByte(double value) {
     return static_cast<unsigned char>(std::lround(value * 255));
 }
 
-void PngSaver::save(Image& image, const std::string& path) {
+void PngSaver::save(const Image& image, const std::string& path) const {
     std::vector<unsigned char> bytes;
     for (unsigned int y = 0; y < image.height(); y++) {
         for (unsigned int x = 0; x < image.width(); x++) {

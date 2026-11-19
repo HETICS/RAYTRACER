@@ -7,5 +7,5 @@
 
 class PngSaver : public ImageSaver {
   public:
-    void save(Image& image, const std::string& path) override;
+    void save(const Image& image, const std::string& path) const override;
 };
