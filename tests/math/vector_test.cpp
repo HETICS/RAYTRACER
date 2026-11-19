@@ -28,3 +28,11 @@ TEST_CASE("t * v scales each component", "[vector]") {
 TEST_CASE("v * t scales each component, like t * v", "[vector]") {
     requireVectorsEqual(Vector(3, -4, 1) * 2.0, Vector(6, -8, 2));
 }
+
+TEST_CASE("O + t * D gives the point on the ray at t", "[vector]") {
+    Vector O(0, 8, 0);
+    Vector D(3, -4, 0);
+    double t = 2;
+
+    requireVectorsEqual(O + t * D, Vector(6, 0, 0));
+}
