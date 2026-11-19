@@ -10,7 +10,7 @@ Vector Sphere::center() const { return _center; }
 double Sphere::radius() const { return _radius; }
 const Material& Sphere::material() const { return *_material; }
 
-bool Sphere::isHitBy(const Ray& ray) const {
+std::optional<HitInfo> Sphere::hit(const Ray& ray) const {
     Vector D = ray.direction();
     Vector L = ray.origin() - _center;
     double a = D.dot(D);
@@ -18,10 +18,21 @@ bool Sphere::isHitBy(const Ray& ray) const {
     double c = L.dot(L) - _radius * _radius;
     double discriminant = b * b - 4.0 * a * c;
     if (discriminant < 0.0) {
-        return false;
+        return std::nullopt;
     }
 
     double t1 = (-b - std::sqrt(discriminant)) / (2.0 * a);
     double t2 = (-b + std::sqrt(discriminant)) / (2.0 * a);
-    return t1 > 0.0 || t2 > 0.0;
+    double t;
+    if (t1 > 0.0) {
+        t = t1;
+    } else if (t2 > 0.0) {
+        t = t2;
+    } else {
+        return std::nullopt;
+    }
+
+    Vector point = ray.at(t);
+    Vector normal = (point - _center).normalised();
+    return HitInfo{point, normal, _material.get()};
 }

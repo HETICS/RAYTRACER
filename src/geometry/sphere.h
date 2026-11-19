@@ -1,7 +1,9 @@
 #pragma once
 
 #include <memory>
+#include <optional>
 
+#include "geometry/hit_info.h"
 #include "geometry/ray.h"
 #include "material/material.h"
 #include "math/vector.h"
@@ -14,7 +16,8 @@ class Sphere {
     double radius() const;
     const Material& material() const;
 
-    bool isHitBy(const Ray& ray) const;
+    // The nearest hit in front of the ray's origin, or nothing.
+    std::optional<HitInfo> hit(const Ray& ray) const;
 
   private:
     Vector _center;
