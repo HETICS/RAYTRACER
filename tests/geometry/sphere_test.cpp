@@ -65,3 +65,14 @@ TEST_CASE("a sphere behind the ray's origin is missed", "[sphere]") {
 
     REQUIRE_FALSE(sphere.hit(ray).has_value());
 }
+
+TEST_CASE("from inside a sphere, the negative t is ignored and the far side is hit", "[sphere]") {
+    Ray ray(Vector(0, 0, 9), Vector(0, 0, 1));
+    Sphere sphere(Vector(0, 0, 9), 5, red());
+
+    std::optional<HitInfo> hit = sphere.hit(ray);
+
+    REQUIRE(hit.has_value());
+    requireVectorsEqual(hit->point, Vector(0, 0, 14));
+    requireVectorsEqual(hit->normal, Vector(0, 0, 1));
+}
