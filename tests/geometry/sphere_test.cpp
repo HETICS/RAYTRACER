@@ -1,4 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/matchers/catch_matchers_floating_point.hpp>
 
 #include <memory>
 #include <optional>
@@ -22,6 +23,7 @@ TEST_CASE("a ray through the centre of a sphere hits it on the near side", "[sph
     std::optional<HitInfo> hit = sphere.hit(ray);
 
     REQUIRE(hit.has_value());
+    REQUIRE_THAT(hit->t, Catch::Matchers::WithinAbs(5, tolerance));
     requireVectorsEqual(hit->point, Vector(0, 0, 4));
 }
 

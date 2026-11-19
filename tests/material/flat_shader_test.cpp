@@ -9,7 +9,7 @@
 
 TEST_CASE("a flat shader gives its own colour, whatever the light", "[material]") {
     FlatShader shader(Colour(1, 0.5, 0));
-    HitInfo hit{Vector(0, 0, 0), Vector(0, 1, 0), &shader};
+    HitInfo hit{1, Vector(0, 0, 0), Vector(0, 1, 0), &shader};
     Light light(Vector(0, -10, 0), Colour(0, 0, 1));
 
     requireColoursEqual(shader.shade(hit, light), Colour(1, 0.5, 0));

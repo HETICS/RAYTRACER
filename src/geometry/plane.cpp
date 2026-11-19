@@ -16,5 +16,5 @@ std::optional<HitInfo> Plane::hit(const Ray& ray) const {
         return std::nullopt;
     }
 
-    return HitInfo{ray.at(t), _normal, _material.get()};
+    return HitInfo{t, ray.at(t), _normal, _material.get()};
 }

@@ -36,6 +36,7 @@ add_library(raytracer_core
   src/light/light.cpp
   src/geometry/sphere.cpp
   src/geometry/plane.cpp
+  src/scene/scene.cpp
   src/geometry/ray.cpp
 )
 target_include_directories(raytracer_core PUBLIC src)
@@ -69,6 +70,7 @@ add_executable(raytracer_tests
   tests/render/trace_test.cpp
   tests/geometry/sphere_test.cpp
   tests/geometry/plane_test.cpp
+  tests/scene/scene_test.cpp
   tests/colour/colour_test.cpp
   tests/geometry/ray_test.cpp
   tests/render/camera_test.cpp
