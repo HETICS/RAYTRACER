@@ -32,6 +32,7 @@ add_library(raytracer_core
   src/image/image.cpp
   src/io/png_saver.cpp
   src/material/flat_shader.cpp
+  src/material/lambert_shader.cpp
   src/light/light.cpp
   src/geometry/sphere.cpp
   src/geometry/ray.cpp
@@ -62,6 +63,7 @@ add_executable(raytracer_tests
   tests/image/image_test.cpp
   tests/io/png_saver_test.cpp
   tests/material/flat_shader_test.cpp
+  tests/material/lambert_shader_test.cpp
   tests/light/light_test.cpp
   tests/render/trace_test.cpp
   tests/geometry/sphere_test.cpp

@@ -2,10 +2,13 @@
 
 #include "colour/colour.h"
 
-// How a surface turns into a colour. Each shading technique is one implementation.
+struct HitInfo;
+class Light;
+
+// How a surface turns light into a colour. Each shading technique is one implementation.
 class Material {
   public:
     virtual ~Material() = default;
 
-    virtual Colour shade() const = 0;
+    virtual Colour shade(const HitInfo& hit, const Light& light) const = 0;
 };
