@@ -8,10 +8,10 @@
 #include "geometry/sphere.h"
 
 int main() {
-    Camera camera(Vector(0, 0, -1));
+    Camera camera(Vector(0, 0, -1), 2);
     Sphere sphere(Vector(0, 0, 9), 5, Colour(1, 0, 0));
 
-    Ray ray = camera.rayThroughCentre();
+    Ray ray = camera.rayThroughPixel(0, 0, 1, 1);
     Colour pixel = trace(ray, sphere);
 
     std::cout << "(" << pixel.r() << ", " << pixel.g() << ", " << pixel.b() << ")\n";

@@ -1,9 +1,14 @@
 #include "render/camera.h"
 
-Camera::Camera(const Vector& position) : _position(position) {}
+Camera::Camera(const Vector& position, double screenWidth)
+    : _position(position), _screenWidth(screenWidth) {}
 
 Vector Camera::position() const { return _position; }
+double Camera::screenWidth() const { return _screenWidth; }
 
-Ray Camera::rayThroughCentre() const {
-    return Ray(_position, Vector(0, 0, 1));
+Ray Camera::rayThroughPixel(unsigned int x, unsigned int y, unsigned int width, unsigned int height) const {
+    double pixelSize = _screenWidth / width;
+    double screenX = (x + 0.5 - width / 2.0) * pixelSize;
+    double screenY = (height / 2.0 - y - 0.5) * pixelSize;
+    return Ray(_position, Vector(screenX, screenY, 1));
 }
