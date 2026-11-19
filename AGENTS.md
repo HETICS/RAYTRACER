@@ -31,6 +31,13 @@ Our architecture decisions are in `docs/adr/`. Read them before changing the bui
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The CI in `.github/workflows/ci.yml` runs `make test` in the dev container on every pull request.
 
+## How we work
+
+- Test-driven development: write a failing test first, then only enough code to make it pass.
+- Expected values in tests come from the maths, not from running the code. If a test fails, ask me before changing what it expects.
+- One small step at a time. Do only what I ask for, nothing more.
+- Keep the C++ simple. No advanced features unless I ask for them.
+
 ## Code style
 
 - Private member variables start with `_`, for example `_x`.
