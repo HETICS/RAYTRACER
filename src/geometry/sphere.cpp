@@ -1,4 +1,4 @@
-#include "sphere.h"
+#include "geometry/sphere.h"
 
 Sphere::Sphere(const Vector& center, double radius, const Colour& colour)
     : _center(center), _radius(radius), _colour(colour) {}

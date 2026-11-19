@@ -14,10 +14,10 @@ endif()
 add_library(raytracer_core
   src/greeting.cpp
   src/math/vector.cpp
-  src/colour.cpp
-  src/camera.cpp
-  src/sphere.cpp
-  src/ray.cpp
+  src/colour/colour.cpp
+  src/render/camera.cpp
+  src/geometry/sphere.cpp
+  src/geometry/ray.cpp
 )
 target_include_directories(raytracer_core PUBLIC src)
 target_compile_options(raytracer_core PUBLIC

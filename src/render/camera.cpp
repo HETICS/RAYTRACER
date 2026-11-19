@@ -1,4 +1,4 @@
-#include "camera.h"
+#include "render/camera.h"
 
 Camera::Camera(const Vector& position) : _position(position) {}
 
