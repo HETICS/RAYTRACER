@@ -1,0 +1,19 @@
+# AGENTS.md
+
+## Commands
+
+Run from the repository root, inside the dev container.
+
+```sh
+cmake -B build -G Ninja                         # configure (first time, or after CMakeLists.txt changes)
+cmake --build build                             # build
+./build/raytracer                               # run
+ctest --test-dir build --output-on-failure      # test (build first: CTest does not compile)
+```
+
+## Architecture decisions
+
+Our architecture decisions are in `docs/adr/`. Read them before changing the build, the tools or the test setup.
+
+- Never go against an accepted ADR. To change a decision, write a new ADR with status Proposed and ask me.
+- Never set an ADR to Accepted.
