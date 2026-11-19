@@ -20,3 +20,7 @@ TEST_CASE("a + b sums each component", "[vector]") {
 TEST_CASE("a - b takes away each component", "[vector]") {
     requireVectorsEqual(Vector(-1, 4, 0) - Vector(-5, 2, 1), Vector(4, 2, -1));
 }
+
+TEST_CASE("t * v scales each component", "[vector]") {
+    requireVectorsEqual(2.0 * Vector(3, -4, 1), Vector(6, -8, 2));
+}
