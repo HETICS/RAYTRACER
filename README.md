@@ -1,1 +1,67 @@
 # Raytracer
+
+A student raytracer written in C++17, built with CMake and tested with Catch2.
+
+## Development environment
+
+The project builds inside a dev container, so every contributor gets the same compiler, CMake and Ninja on macOS, Linux or Windows.
+
+Requirements on your machine: [Docker](https://docs.docker.com/get-docker/) (or OrbStack / Podman) and an editor that supports dev containers.
+
+- **VS Code**: install the *Dev Containers* extension, open the folder, then run *Dev Containers: Reopen in Container*.
+- **Zed**: open the folder and accept the *Open in Dev Container* prompt (or run `project: open dev container` from the command palette).
+- **Command line**: `npx @devcontainers/cli up --workspace-folder .` then `npx @devcontainers/cli exec --workspace-folder . bash`.
+
+The container is defined in [`.devcontainer/`](.devcontainer/). The first build downloads the image and takes a few minutes.
+
+You can also build without the container if you have CMake 3.20+ and a C++17 compiler installed.
+
+## Build and run
+
+All commands run from the project root, inside the container.
+
+```bash
+cmake -B build -G Ninja      # configure: generates the build files in build/ (downloads Catch2 the first time)
+cmake --build build          # compile the program and the tests
+./build/raytracer            # run: prints "Hello, World!"
+```
+
+Run the configure step again only when `CMakeLists.txt` changes. To start from scratch, delete the `build/` folder.
+
+## Tests
+
+```bash
+cmake --build build && ctest --test-dir build --output-on-failure
+```
+
+`ctest` runs every Catch2 test case and prints the details of any failure. You can also run the test executable directly with `./build/raytracer_tests`.
+
+### Project layout
+
+| Path | Content |
+|---|---|
+| `src/` | Code of the raytracer, compiled into the `raytracer_core` library |
+| `src/main.cc` | Entry point of the `raytracer` program |
+| `tests/` | Catch2 tests, compiled into `raytracer_tests` |
+
+The program and the tests both link `raytracer_core`, so the tests check the same code that the program runs.
+
+### Working with TDD
+
+1. **Red**: write a test in `tests/` that describes the behaviour you want, then build and run the tests. It must fail (or not compile).
+2. **Green**: write the smallest amount of code in `src/` that makes the test pass.
+3. **Refactor**: clean up the code and the test, and keep running the tests until they are all green.
+
+A test looks like this:
+
+```cpp
+#include <catch2/catch_test_macros.hpp>
+
+#include "greeting.h"
+
+TEST_CASE("greeting addresses the given name") {
+    REQUIRE(greeting("World") == "Hello, World!");
+}
+```
+
+To add a new test file, create it in `tests/` and add it to `add_executable(raytracer_tests ...)` in `CMakeLists.txt`. To add a new source file, add it to `add_library(raytracer_core ...)`.
