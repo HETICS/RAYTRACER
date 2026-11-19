@@ -24,3 +24,7 @@ TEST_CASE("a - b takes away each component", "[vector]") {
 TEST_CASE("t * v scales each component", "[vector]") {
     requireVectorsEqual(2.0 * Vector(3, -4, 1), Vector(6, -8, 2));
 }
+
+TEST_CASE("v * t scales each component, like t * v", "[vector]") {
+    requireVectorsEqual(Vector(3, -4, 1) * 2.0, Vector(6, -8, 2));
+}

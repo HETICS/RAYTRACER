@@ -10,6 +10,7 @@ class Vector {
 
     Vector operator+(const Vector& other) const;
     Vector operator-(const Vector& other) const;
+    Vector operator*(double t) const;
 
   private:
     double _x;
