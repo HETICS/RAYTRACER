@@ -15,7 +15,6 @@ class Sphere : public Shape {
 
     Vector center() const;
     double radius() const;
-    const Material& material() const;
 
     std::optional<HitInfo> hit(const Ray& ray) const override;
 
