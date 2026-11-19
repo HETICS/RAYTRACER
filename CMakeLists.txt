@@ -14,6 +14,11 @@ endif()
 add_library(raytracer_core
   src/greeting.cpp
   src/math/vector.cpp
+  src/colour/colour.cpp
+  src/render/camera.cpp
+  src/render/trace.cpp
+  src/geometry/sphere.cpp
+  src/geometry/ray.cpp
 )
 target_include_directories(raytracer_core PUBLIC src)
 target_compile_options(raytracer_core PUBLIC
@@ -35,9 +40,16 @@ FetchContent_MakeAvailable(Catch2)
 enable_testing()
 
 add_executable(raytracer_tests
+  tests/test_helpers.cpp
   tests/greeting_test.cpp
   tests/math/vector_test.cpp
+  tests/render/trace_test.cpp
+  tests/geometry/sphere_test.cpp
+  tests/colour/colour_test.cpp
+  tests/geometry/ray_test.cpp
+  tests/render/camera_test.cpp
 )
+target_include_directories(raytracer_tests PRIVATE tests)
 target_link_libraries(raytracer_tests PRIVATE raytracer_core Catch2::Catch2WithMain)
 
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
