@@ -1,6 +1,7 @@
 #pragma once
 
 #include "math/vector.h"
+#include "ray.h"
 
 // For now the camera always looks along +z.
 class Camera {
@@ -8,6 +9,7 @@ class Camera {
     explicit Camera(const Vector& position);
 
     Vector position() const;
+    Ray rayThroughCentre() const;
 
   private:
     Vector _position;
