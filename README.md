@@ -76,3 +76,10 @@ TEST_CASE("greeting addresses the given name") {
 ```
 
 To add a new test file, create it in `tests/` and add it to `add_executable(raytracer_tests ...)` in `CMakeLists.txt`. To add a new source file, add it to `add_library(raytracer_core ...)`.
+
+## Contributing
+
+- [CONTRIBUTING.md](CONTRIBUTING.md): set up, commands, TDD and ADRs
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [LICENSE](LICENSE): MIT
+- CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) builds and tests every pull request in the dev container

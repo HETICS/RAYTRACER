@@ -26,3 +26,7 @@ Our architecture decisions are in `docs/adr/`. Read them before changing the bui
 
 - Never go against an accepted ADR. To change a decision, write a new ADR with status Proposed and ask me.
 - Never set an ADR to Accepted.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). The CI in `.github/workflows/ci.yml` runs `make test` in the dev container on every pull request.
