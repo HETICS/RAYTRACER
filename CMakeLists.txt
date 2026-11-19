@@ -34,7 +34,10 @@ FetchContent_MakeAvailable(Catch2)
 
 enable_testing()
 
-add_executable(raytracer_tests tests/greeting_test.cpp)
+add_executable(raytracer_tests
+  tests/greeting_test.cpp
+  tests/vector_test.cpp
+)
 target_link_libraries(raytracer_tests PRIVATE raytracer_core Catch2::Catch2WithMain)
 
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)

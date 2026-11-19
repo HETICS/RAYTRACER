@@ -9,6 +9,7 @@ class Vector {
     double getZ() const;
 
     Vector add(const Vector& other) const;
+    Vector subtract(const Vector& other) const;
 
   private:
     double x;

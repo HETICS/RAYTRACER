@@ -9,3 +9,7 @@ double Vector::getZ() const { return z; }
 Vector Vector::add(const Vector& other) const {
     return Vector(x + other.x, y + other.y, z + other.z);
 }
+
+Vector Vector::subtract(const Vector& other) const {
+    return Vector(x - other.x, y - other.y, z - other.z);
+}
