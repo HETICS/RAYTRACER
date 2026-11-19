@@ -39,3 +39,15 @@ TEST_CASE("the bottom-left pixel's ray goes left and down", "[camera]") {
 
     requireVectorsEqual(ray.direction(), Vector(-2, -1, 1));
 }
+
+// A screen 2 wide over 512 columns: one pixel is 2 / 512 = 0.00390625 across.
+TEST_CASE("with smaller pixels, the corner rays go through the corner pixels' centres", "[camera]") {
+    Camera camera(Vector(0, 0, -1), 2);
+
+    requireVectorsEqual(camera.rayThroughPixel(0, 0, 512, 256).direction(),
+                        Vector(-0.998046875, 0.498046875, 1));
+    requireVectorsEqual(camera.rayThroughPixel(511, 255, 512, 256).direction(),
+                        Vector(0.998046875, -0.498046875, 1));
+    requireVectorsEqual(camera.rayThroughPixel(256, 128, 512, 256).direction(),
+                        Vector(0.001953125, -0.001953125, 1));
+}
