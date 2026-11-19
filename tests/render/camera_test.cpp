@@ -1,6 +1,12 @@
 #include <catch2/catch_test_macros.hpp>
 
+#include <string>
+#include <vector>
+
+#include "colour/colour.h"
 #include "geometry/ray.h"
+#include "geometry/sphere.h"
+#include "image/image.h"
 #include "math/vector.h"
 #include "render/camera.h"
 #include "test_helpers.h"
@@ -50,4 +56,36 @@ TEST_CASE("with smaller pixels, the corner rays go through the corner pixels' ce
                         Vector(0.998046875, -0.498046875, 1));
     requireVectorsEqual(camera.rayThroughPixel(256, 128, 512, 256).direction(),
                         Vector(0.001953125, -0.001953125, 1));
+}
+
+TEST_CASE("render gives an image of the size asked for", "[camera]") {
+    Camera camera(Vector(0, 0, -1), 5);
+    Sphere sphere(Vector(0, 0, 6), 5, Colour(1, 0, 0));
+
+    Image image = camera.render(sphere, 5, 3);
+
+    REQUIRE(image.width() == 5);
+    REQUIRE(image.height() == 3);
+}
+
+TEST_CASE("render colours the pixels whose ray hits the sphere: a plus", "[camera]") {
+    Camera camera(Vector(0, 0, -1), 5);
+    Sphere sphere(Vector(0, 0, 6), 5, Colour(1, 0, 0));
+
+    Image image = camera.render(sphere, 5, 3);
+
+    std::vector<std::string> expected = {
+        "..#..",
+        ".###.",
+        "..#..",
+    };
+    for (unsigned int y = 0; y < 3; y++) {
+        for (unsigned int x = 0; x < 5; x++) {
+            if (expected[y][x] == '#') {
+                requireColoursEqual(image.pixel(x, y), Colour(1, 0, 0));
+            } else {
+                requireColoursEqual(image.pixel(x, y), Colour(0, 0, 0));
+            }
+        }
+    }
 }
