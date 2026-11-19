@@ -42,6 +42,7 @@ add_executable(raytracer_tests
   tests/test_helpers.cpp
   tests/greeting_test.cpp
   tests/math/vector_test.cpp
+  tests/geometry/sphere_test.cpp
   tests/colour/colour_test.cpp
   tests/geometry/ray_test.cpp
   tests/render/camera_test.cpp
