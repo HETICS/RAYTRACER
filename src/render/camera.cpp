@@ -15,11 +15,11 @@ Ray Camera::rayThroughPixel(unsigned int x, unsigned int y, unsigned int width, 
     return Ray(_position, Vector(screenX, screenY, 1));
 }
 
-Image Camera::render(const Sphere& sphere, const Light& light, unsigned int width, unsigned int height) const {
+Image Camera::render(const Scene& scene, unsigned int width, unsigned int height) const {
     Image image(width, height);
     for (unsigned int y = 0; y < height; y++) {
         for (unsigned int x = 0; x < width; x++) {
-            image.setPixel(x, y, trace(rayThroughPixel(x, y, width, height), sphere, light));
+            image.setPixel(x, y, trace(rayThroughPixel(x, y, width, height), scene));
         }
     }
     return image;

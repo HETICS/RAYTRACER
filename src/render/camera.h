@@ -1,10 +1,9 @@
 #pragma once
 
 #include "geometry/ray.h"
-#include "geometry/sphere.h"
 #include "image/image.h"
-#include "light/light.h"
 #include "math/vector.h"
+#include "scene/scene.h"
 
 // The camera looks along +z, at a screen 1 in front of it.
 class Camera {
@@ -15,7 +14,7 @@ class Camera {
     double screenWidth() const;
 
     Ray rayThroughPixel(unsigned int x, unsigned int y, unsigned int width, unsigned int height) const;
-    Image render(const Sphere& sphere, const Light& light, unsigned int width, unsigned int height) const;
+    Image render(const Scene& scene, unsigned int width, unsigned int height) const;
 
   private:
     Vector _position;
