@@ -14,6 +14,7 @@ endif()
 add_library(raytracer_core
   src/greeting.cpp
   src/math/vector.cpp
+  src/camera.cpp
   src/sphere.cpp
   src/ray.cpp
 )
