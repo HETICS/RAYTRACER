@@ -1,6 +1,6 @@
 # Raytracer
 
-A student raytracer written in C++17, built with CMake and tested with Catch2.
+A student raytracer written in C++17. It renders a lit red ball on a grey floor to `image.png`, built with CMake and tested with Catch2.
 
 ## Development environment
 
@@ -34,7 +34,7 @@ All commands run from the project root, inside the container.
 ```bash
 cmake -B build -G Ninja      # configure: generates the build files in build/ (downloads Catch2 the first time)
 cmake --build build          # compile the program and the tests
-./build/raytracer            # run: prints "Hello, World!"
+./build/raytracer            # run: writes image.png and prints its name
 ```
 
 Run the configure step again only when `CMakeLists.txt` changes. To start from scratch, delete the `build/` folder.
@@ -68,14 +68,14 @@ A test looks like this:
 ```cpp
 #include <catch2/catch_test_macros.hpp>
 
-#include "greeting.h"
+#include "math/vector.h"
 
-TEST_CASE("greeting addresses the given name") {
-    REQUIRE(greeting("World") == "Hello, World!");
+TEST_CASE("length follows Pythagoras", "[vector]") {
+    REQUIRE(Vector(3, -4, 0).length() == 5);
 }
 ```
 
-To add a new test file, create it in `tests/` and add it to `add_executable(raytracer_tests ...)` in `CMakeLists.txt`. To add a new source file, add it to `add_library(raytracer_core ...)`.
+To add a new test file, create it in the matching folder of `tests/` and add it to `add_executable(raytracer_tests ...)` in `CMakeLists.txt`. To add a new source file, put it in its concept folder under `src/` and add it to `add_library(raytracer_core ...)`.
 
 ## Contributing
 

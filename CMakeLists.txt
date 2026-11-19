@@ -24,7 +24,6 @@ target_include_directories(lodepng PUBLIC ${lodepng_SOURCE_DIR})
 
 # Code shared by the program and the tests, so tests exercise the real code.
 add_library(raytracer_core
-  src/greeting.cpp
   src/math/vector.cpp
   src/colour/colour.cpp
   src/render/camera.cpp
@@ -60,7 +59,6 @@ enable_testing()
 
 add_executable(raytracer_tests
   tests/test_helpers.cpp
-  tests/greeting_test.cpp
   tests/math/vector_test.cpp
   tests/image/image_test.cpp
   tests/io/png_saver_test.cpp
