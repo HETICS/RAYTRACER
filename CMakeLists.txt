@@ -35,6 +35,7 @@ add_library(raytracer_core
   src/material/lambert_shader.cpp
   src/light/light.cpp
   src/geometry/sphere.cpp
+  src/geometry/plane.cpp
   src/geometry/ray.cpp
 )
 target_include_directories(raytracer_core PUBLIC src)
@@ -67,6 +68,7 @@ add_executable(raytracer_tests
   tests/light/light_test.cpp
   tests/render/trace_test.cpp
   tests/geometry/sphere_test.cpp
+  tests/geometry/plane_test.cpp
   tests/colour/colour_test.cpp
   tests/geometry/ray_test.cpp
   tests/render/camera_test.cpp
