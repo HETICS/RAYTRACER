@@ -30,3 +30,7 @@ Our architecture decisions are in `docs/adr/`. Read them before changing the bui
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The CI in `.github/workflows/ci.yml` runs `make test` in the dev container on every pull request.
+
+## Code style
+
+- Private member variables start with `_`, for example `_x`.

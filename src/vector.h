@@ -12,7 +12,7 @@ class Vector {
     Vector subtract(const Vector& other) const;
 
   private:
-    double x;
-    double y;
-    double z;
+    double _x;
+    double _y;
+    double _z;
 };
