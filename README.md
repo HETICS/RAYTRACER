@@ -52,7 +52,7 @@ cmake --build build && ctest --test-dir build --output-on-failure
 | Path | Content |
 |---|---|
 | `src/` | Code of the raytracer, compiled into the `raytracer_core` library |
-| `src/main.cc` | Entry point of the `raytracer` program |
+| `src/main.cpp` | Entry point of the `raytracer` program |
 | `tests/` | Catch2 tests, compiled into `raytracer_tests` |
 
 The program and the tests both link `raytracer_core`, so the tests check the same code that the program runs.

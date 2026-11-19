@@ -11,14 +11,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # Code shared by the program and the tests, so tests exercise the real code.
-add_library(raytracer_core src/greeting.cc)
+add_library(raytracer_core src/greeting.cpp)
 target_include_directories(raytracer_core PUBLIC src)
 target_compile_options(raytracer_core PUBLIC
   $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wpedantic>
   $<$<CXX_COMPILER_ID:MSVC>:/W4>
 )
 
-add_executable(raytracer src/main.cc)
+add_executable(raytracer src/main.cpp)
 target_link_libraries(raytracer PRIVATE raytracer_core)
 
 include(FetchContent)
@@ -31,7 +31,7 @@ FetchContent_MakeAvailable(Catch2)
 
 enable_testing()
 
-add_executable(raytracer_tests tests/greeting_test.cc)
+add_executable(raytracer_tests tests/greeting_test.cpp)
 target_link_libraries(raytracer_tests PRIVATE raytracer_core Catch2::Catch2WithMain)
 
 list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
