@@ -14,7 +14,7 @@ Alternatives considered:
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

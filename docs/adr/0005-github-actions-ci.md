@@ -15,7 +15,7 @@ The workflow `.github/workflows/ci.yml` runs on every pull request and every pus
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

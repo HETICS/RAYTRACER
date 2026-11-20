@@ -15,7 +15,7 @@ Each concept has its own folder under `src/`, for example `src/math/vector.h` an
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

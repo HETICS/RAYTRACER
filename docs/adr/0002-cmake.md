@@ -15,7 +15,7 @@ We use CMake (3.20 or newer) with the Ninja generator. The code is compiled into
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

@@ -20,7 +20,7 @@ We choose composition:
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

@@ -16,7 +16,7 @@ A small `Makefile` at the root provides `make build`, `make run`, `make test` an
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

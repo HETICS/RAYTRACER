@@ -16,7 +16,7 @@ We use LodePNG, fetched with `FetchContent` at a pinned commit (`7b2893e`), sinc
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

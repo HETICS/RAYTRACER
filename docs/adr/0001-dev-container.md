@@ -15,7 +15,7 @@ We build, run and test inside a dev container defined in `.devcontainer/devconta
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 
