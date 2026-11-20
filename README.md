@@ -49,6 +49,7 @@ cmake --build build && ctest --test-dir build --output-on-failure
 
 ### Documents
 
+- [Architecture decisions](docs/adr/)
 - [Domain model](docs/domain/domain-model.md)
 - [Discovery report](docs/discovery/discovery-report.md)
 
